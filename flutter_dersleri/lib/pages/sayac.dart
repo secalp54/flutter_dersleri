@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Sayac extends StatefulWidget {
   @override
@@ -13,12 +14,11 @@ class _SayacState extends State<Sayac> {
     return Scaffold(
         appBar: AppBar(
           actions: [
-            IconButton(onPressed: (){}, icon: Icon(Icons.ac_unit)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.add_home)),
-            
+            IconButton(onPressed: () {}, icon: const Icon(Icons.ac_unit)),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.add_home)),
           ],
-          backgroundColor: Colors.orange,
-          title: Text("Sayac Uygulaması"),
+          //backgroundColor: Colors.orange,
+          title: const Text("Sayac Uygulaması"),
           centerTitle: true,
         ),
         floatingActionButton: Row(
@@ -31,14 +31,15 @@ class _SayacState extends State<Sayac> {
                 arttir();
               },
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             FloatingActionButton(
-              backgroundColor: Colors.red,
-              child: Icon(Icons.exit_to_app_outlined),
+              //backgroundColor: Colors.red,
+              child: const Icon(Icons.exit_to_app_outlined),
               onPressed: () {
                 debugPrint("tıklanıldı sayac: $_sayac");
+                setState(() {});
                 azalt();
               },
             ),
@@ -48,13 +49,28 @@ class _SayacState extends State<Sayac> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "SAYAC",
-              style: TextStyle(fontSize: 30),
+            Container(
+              color: Colors.black,
+              child: Transform(
+                alignment: Alignment.topRight,
+                transform: Matrix4.skewY(0.3)..rotateZ(-pi / 20.0),
+                child: Container(
+                  padding: const EdgeInsets.all(8.0),
+                  color: const Color(0xFFE8581C),
+                  child: const Text('Sayac'),
+                ),
+              ),
             ),
-            Text(
-              _sayac.toString(),
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            // const Text(
+            //   "SAYAC",
+            //   style: TextStyle(fontSize: 30),
+            // ),
+            Transform.rotate(
+              angle: pi / 4 * _sayac,
+              child: Text(
+                _sayac.toString(),
+                style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         )));
@@ -74,6 +90,6 @@ class _SayacState extends State<Sayac> {
       _sayac--;
     }
 
-    setState(() {});
+    //  setState(() {});
   }
 }

@@ -10,8 +10,11 @@ class AnaSayfa extends StatelessWidget {
         body: Container(
           width: 50,
           height: 50,
-          color: Colors.red,
-          child: Center(child: const Text("A")),
+          decoration: BoxDecoration(
+            color: Colors.amber,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: const Center(child: Text("Alp")),
         ));
   }
 }
