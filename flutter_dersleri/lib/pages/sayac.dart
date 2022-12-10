@@ -8,14 +8,25 @@ class Sayac extends StatefulWidget {
 
 class _SayacState extends State<Sayac> {
   int _sayac = 0;
-
+  Color _sayacRenk = Colors.blue;
+  double _fontBuyuk = 40;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.ac_unit)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.add_home)),
+            IconButton(
+                onPressed: () {
+                  //buyult
+                  fontBuyult();
+                },
+                icon: const Icon(Icons.ac_unit)),
+            IconButton(
+                onPressed: () {
+                  //kucult
+                  fontKucult();
+                },
+                icon: const Icon(Icons.add_home)),
           ],
           //backgroundColor: Colors.orange,
           title: const Text("Sayac Uygulaması"),
@@ -69,7 +80,7 @@ class _SayacState extends State<Sayac> {
               angle: pi / 4 * _sayac,
               child: Text(
                 _sayac.toString(),
-                style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                style: TextStyle(color: _sayacRenk, fontSize: _fontBuyuk, fontWeight: FontWeight.bold),
               ),
             ),
           ],
@@ -78,6 +89,7 @@ class _SayacState extends State<Sayac> {
 
   void arttir() {
     _sayac++;
+    if (_sayac >= 0) _sayacRenk = Colors.blue;
     debugPrint("1. aşama sayac arttı");
     setState(() {
       debugPrint("setstate çalıştı");
@@ -86,10 +98,23 @@ class _SayacState extends State<Sayac> {
   }
 
   void azalt() {
-    if (_sayac >= 1) {
-      _sayac--;
-    }
+    _sayac--;
+    if (_sayac < 0) _sayacRenk = Colors.red;
 
     //  setState(() {});
+  }
+
+  void fontBuyult() {
+    _fontBuyuk++;
+    setState(() {
+      
+    });
+  }
+
+  fontKucult() {
+    _fontBuyuk--;
+    setState(() {
+      
+    });
   }
 }

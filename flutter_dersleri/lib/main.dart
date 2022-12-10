@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dersleri/pages/resimler.dart';
+
+import 'package:flutter_dersleri/pages/dropMenu/drop_down.dart';
+import 'package:flutter_dersleri/pages/dropMenu/popup_uygulama.dart';
+import 'package:flutter_dersleri/pages/sayac.dart';
 import 'package:flutter_dersleri/tema/my_tema.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -12,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: BenimTema().light,
       debugShowCheckedModeBanner: false,
-      home: Resimler(),
+      home: Sayac(),
     );
   }
 }
