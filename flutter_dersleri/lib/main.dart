@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dersleri/demo/test.dart';
 import 'package:flutter_dersleri/listview_ornek/data/personel_data.dart';
+import 'package:flutter_dersleri/pages/anasayfa.dart';
 import 'package:flutter_dersleri/pages/grd_view.dart';
+import 'package:flutter_dersleri/pages/navigators/profil.dart';
+
+import 'package:flutter_dersleri/pages/roots/myroots.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'demo/pdf_view.dart';
 import 'gridview/grid_view.dart';
 import 'listview_ornek/personel_page.dart';
+
 import 'tema/my_tema.dart';
 
 void main() {
@@ -36,8 +41,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: BenimTema().light,
       debugShowCheckedModeBanner: false,
-      home: GridViewx(),
+     // home: AnaSayfa(),
       builder: EasyLoading.init(),
+      routes: {
+        "/":(context)=>AnaSayfa(),
+        "/profil":(context) =>  ProfilPage(),
+        "/personel":(context)=>PersonelPage(),
+        
+      },
+      //onGenerateRoute:
+      
      
     );
   }

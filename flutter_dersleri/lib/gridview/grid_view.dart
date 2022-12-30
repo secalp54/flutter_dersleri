@@ -49,7 +49,7 @@ class _GridViewxState extends State<GridViewx> {
               TextButton(
                   onPressed: () {
                     setState(() {});
-                    _number = RandomNumber().randomFill();
+                    _number = RandomNumber().randomFill(9);
                     //debugPrint(number[2].value.toString());
                   },
                   child: const Text("Dağıt"))

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class BenimTema {
   ThemeData light = ThemeData.light().copyWith(
+      
       appBarTheme: AppBarTheme(backgroundColor: Renklerim.appBarColor, elevation: 0),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Renklerim.fbColor,
