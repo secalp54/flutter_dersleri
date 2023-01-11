@@ -25,7 +25,24 @@ class _UrunListeleState extends State<UrunListele> {
           builder: ((context, snapshot) {
             if (snapshot.hasData) {
               print(snapshot.data);
-              return ListView();
+
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (BuildContext context, int index) {
+                  var urun = snapshot.data![index];
+                  return Card(
+                    child: Column(
+                      children: [
+                        SizedBox(child: Image.network(urun.thumbnail!,fit: BoxFit.contain, height: 250,width: 250,),),
+                        SizedBox(height: 5,),
+                        Text(urun.title!),
+                        SizedBox(height: 5,),
+                        Text(urun.price!.toString()+" ₺"),
+                      ],
+                    ),
+                  );
+                },
+              );
             } else if (snapshot.hasError) {
               return Text("İnternet bağlantınız arızalı olabilir.");
             } else
@@ -37,7 +54,7 @@ class _UrunListeleState extends State<UrunListele> {
 
   Future<List<UrunModal>> _verileriAl() async {
     String path = "https://dummyjson.com/products";
-    await Future.delayed(Duration(seconds: 5));
+    //await Future.delayed(Duration(seconds: 5));
     var response = await Dio().get(path);
 
     var data = (response.data as Map);
