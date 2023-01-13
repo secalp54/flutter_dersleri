@@ -53,4 +53,9 @@ class UrunModal {
     data['images'] = this.images;
     return data;
   }
+  @override
+  String toString() {
+    // TODO: implement toString
+    return this.title??"";
+  }
 }

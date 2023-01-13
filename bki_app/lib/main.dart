@@ -5,6 +5,8 @@ import 'package:bki_app/pages/urunler.dart';
 
 import 'package:flutter/material.dart';
 
+import 'pages/kitap.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         visualDensity:VisualDensity.adaptivePlatformDensity 
       ),
       title: StringSabitleri.uygulamaAdi,
-      home: UrunListele(),
+      home: Kitaplar(),
     );
   }
 }
