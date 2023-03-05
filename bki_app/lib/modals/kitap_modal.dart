@@ -7,14 +7,7 @@ class KitapModal {
   String? title;
   String? image;
 
-  KitapModal(
-      {this.url,
-      this.indirim,
-      this.fiyat,
-      this.yayN,
-      this.yazar,
-      this.title,
-      this.image});
+  KitapModal({this.url, this.indirim, this.fiyat, this.yayN, this.yazar, this.title, this.image});
 
   KitapModal.fromJson(Map<String, dynamic> json) {
     url = json['url'];
@@ -36,5 +29,10 @@ class KitapModal {
     data['title'] = this.title;
     data['image'] = this.image;
     return data;
+  }
+
+  @override
+  String toString() {
+    return "${this.title} ${this.fiyat}";
   }
 }
